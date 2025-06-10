@@ -1,786 +1,127 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khant Journey | Travel Adventures & Tips</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-/* Global Styles */
-:root {
---primary-color: #3a86ff;
---secondary-color: #ff006e;
---accent-color: #8338ec;
---light-color: #ffbe0b;
---dark-color: #1d3557;
---light-bg: #f8f9fa;
---text-color: #333;
---text-light: #6c757d;
---transition: all 0.3s ease;
---shadow: 0 5px 15px rgba(0,0,0,0.1);
---border-radius: 8px;
-}
-
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-
-body {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-line-height: 1.6;
-color: var(--text-color);
-background-color: #fff;
-}
-
-a {
-text-decoration: none;
-color: inherit;
-transition: var(--transition);
-}
-
-a:hover {
-color: var(--primary-color);
-}
-
-.container {
-width: 90%;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 15px;
-}
-
-.btn {
-display: inline-block;
-padding: 10px 25px;
-background: var(--primary-color);
-color: white;
-border-radius: 30px;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 1px;
-font-size: 0.9rem;
-border: none;
-cursor: pointer;
-transition: var(--transition);
-box-shadow: var(--shadow);
-}
-
-.btn:hover {
-background: var(--accent-color);
-color: white;
-transform: translateY(-3px);
-}
-
-.btn-secondary {
-background: var(--secondary-color);
-}
-
-.btn-light {
-background: var(--light-color);
-color: var(--dark-color);
-}
-
-.section-title {
-font-size: 2.5rem;
-margin-bottom: 2rem;
-text-align: center;
-position: relative;
-color: var(--dark-color);
-}
-
-.section-title:after {
-content: '';
-position: absolute;
-bottom: -10px;
-left: 50%;
-transform: translateX(-50%);
-width: 100px;
-height: 4px;
-background: var(--primary-color);
-border-radius: 2px;
-}
-
-/* Header Styles */
-header {
-background-color: white;
-box-shadow: var(--shadow);
-position: sticky;
-top: 0;
-z-index: 100;
-}
-
-.header-container {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 20px 0;
-}
-
-.logo {
-font-size: 2rem;
-font-weight: 800;
-color: var(--primary-color);
-}
-
-.logo span {
-color: var(--secondary-color);
-}
-
-nav ul {
-display: flex;
-list-style: none;
-}
-
-nav ul li {
-margin-left: 30px;
-}
-
-nav ul li a {
-font-weight: 600;
-font-size: 1.1rem;
-position: relative;
-}
-
-nav ul li a:after {
-content: '';
-position: absolute;
-bottom: -5px;
-left: 0;
-width: 0;
-height: 3px;
-background: var(--primary-color);
-transition: var(--transition);
-}
-
-nav ul li a:hover:after {
-width: 100%;
-}
-
-.mobile-menu {
-display: none;
-font-size: 1.5rem;
-cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-height: 90vh;
-background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://raw.githubusercontent.com/khantwinaungz/kai.explorer/main/image/image1.jpg') center/cover no-repeat;
-display: flex;
-align-items: center;
-text-align: center;
-color: white;
-}
-
-.hero-content {
-max-width: 800px;
-margin: 0 auto;
-padding: 0 20px;
-}
-
-.hero h1 {
-font-size: 4rem;
-margin-bottom: 20px;
-text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.hero p {
-font-size: 1.5rem;
-margin-bottom: 30px;
-text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
-/* Featured Posts */
-.featured-posts {
-padding: 80px 0;
-background-color: var(--light-bg);
-}
-
-.posts-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 30px;
-}
-
-.post-card {
-background: white;
-border-radius: var(--border-radius);
-overflow: hidden;
-box-shadow: var(--shadow);
-transition: var(--transition);
-}
-
-.post-card:hover {
-transform: translateY(-10px);
-box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-.post-image {
-height: 250px;
-width: 100%;
-overflow: hidden;
-}
-
-.post-image img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: var(--transition);
-}
-
-.post-card:hover .post-image img {
-transform: scale(1.1);
-}
-
-.post-content {
-padding: 25px;
-}
-
-.post-meta {
-display: flex;
-margin-bottom: 15px;
-color: var(--text-light);
-font-size: 0.9rem;
-}
-
-.post-meta span {
-margin-right: 15px;
-}
-
-.post-meta i {
-margin-right: 5px;
-color: var(--primary-color);
-}
-
-.post-title {
-font-size: 1.5rem;
-margin-bottom: 15px;
-color: var(--dark-color);
-}
-
-.post-excerpt {
-margin-bottom: 20px;
-color: var(--text-light);
-}
-
-.read-more {
-color: var(--primary-color);
-font-weight: 600;
-display: inline-flex;
-align-items: center;
-}
-
-.read-more i {
-margin-left: 5px;
-transition: var(--transition);
-}
-
-.read-more:hover i {
-transform: translateX(5px);
-}
-
-/* Categories Section */
-.categories {
-padding: 80px 0;
-}
-
-.categories-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 20px;
-}
-
-.category-card {
-height: 200px;
-border-radius: var(--border-radius);
-overflow: hidden;
-position: relative;
-box-shadow: var(--shadow);
-}
-
-.category-card img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: var(--transition);
-}
-
-.category-card:hover img {
-transform: scale(1.1);
-}
-
-.category-overlay {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0,0,0,0.4);
-display: flex;
-align-items: center;
-justify-content: center;
-color: white;
-font-size: 1.8rem;
-font-weight: 700;
-text-transform: uppercase;
-letter-spacing: 1px;
-text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-
-/* Newsletter */
-.newsletter {
-padding: 80px 0;
-background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-color: white;
-text-align: center;
-}
-
-.newsletter h2 {
-font-size: 2.5rem;
-margin-bottom: 20px;
-}
-
-.newsletter p {
-max-width: 600px;
-margin: 0 auto 30px;
-font-size: 1.2rem;
-}
-
-.newsletter-form {
-max-width: 500px;
-margin: 0 auto;
-display: flex;
-}
-
-.newsletter-form input {
-flex: 1;
-padding: 15px 20px;
-border: none;
-border-radius: 50px 0 0 50px;
-font-size: 1rem;
-}
-
-.newsletter-form button {
-border-radius: 0 50px 50px 0;
-padding: 0 30px;
-background: var(--light-color);
-color: var(--dark-color);
-font-weight: 700;
-border: none;
-cursor: pointer;
-transition: var(--transition);
-}
-
-.newsletter-form button:hover {
-background: white;
-}
-
-/* About Section */
-.about {
-padding: 80px 0;
-background-color: var(--light-bg);
-}
-
-.about-content {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 50px;
-align-items: center;
-}
-
-.about-image {
-border-radius: var(--border-radius);
-overflow: hidden;
-box-shadow: var(--shadow);
-}
-
-.about-image img {
-width: 100%;
-display: block;
-}
-
-.about-text h2 {
-font-size: 2.5rem;
-margin-bottom: 20px;
-color: var(--dark-color);
-}
-
-.about-text p {
-margin-bottom: 20px;
-font-size: 1.1rem;
-}
-
-.social-icons {
-display: flex;
-margin-top: 30px;
-}
-
-.social-icons a {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 45px;
-height: 45px;
-background: var(--primary-color);
-color: white;
-border-radius: 50%;
-margin-right: 15px;
-transition: var(--transition);
-}
-
-.social-icons a:hover {
-background: var(--accent-color);
-transform: translateY(-5px);
-}
-
-/* Footer */
-footer {
-background: var(--dark-color);
-color: white;
-padding: 60px 0 30px;
-}
-
-.footer-content {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 30px;
-margin-bottom: 40px;
-}
-
-.footer-column h3 {
-font-size: 1.5rem;
-margin-bottom: 25px;
-position: relative;
-padding-bottom: 10px;
-}
-
-.footer-column h3:after {
-content: '';
-position: absolute;
-bottom: 0;
-left: 0;
-width: 50px;
-height: 3px;
-background: var(--primary-color);
-}
-
-.footer-links {
-list-style: none;
-}
-
-.footer-links li {
-margin-bottom: 12px;
-}
-
-.footer-links a:hover {
-color: var(--primary-color);
-padding-left: 5px;
-}
-
-.footer-bottom {
-text-align: center;
-padding-top: 30px;
-border-top: 1px solid rgba(255,255,255,0.1);
-font-size: 0.9rem;
-color: rgba(255,255,255,0.6);
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-.hero h1 {
-font-size: 3rem;
-}
-
-.hero p {
-font-size: 1.2rem;
-}
-
-.about-content {
-grid-template-columns: 1fr;
-}
-}
-
-@media (max-width: 768px) {
-.mobile-menu {
-display: block;
-}
-
-nav {
-position: fixed;
-top: 0;
-right: -300px;
-width: 280px;
-height: 100vh;
-background: white;
-box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-transition: var(--transition);
-z-index: 1000;
-}
-
-nav.active {
-right: 0;
-}
-
-nav ul {
-flex-direction: column;
-padding: 80px 30px;
-}
-
-nav ul li {
-margin: 15px 0;
-}
-
-.hero h1 {
-font-size: 2.5rem;
-}
-
-.newsletter-form {
-flex-direction: column;
-}
-
-.newsletter-form input {
-border-radius: 50px;
-margin-bottom: 15px;
-}
-
-.newsletter-form button {
-border-radius: 50px;
-padding: 15px;
-}
-}
-
-@media (max-width: 576px) {
-.hero {
-height: 80vh;
-}
-
-.hero h1 {
-font-size: 2rem;
-}
-
-.section-title {
-font-size: 2rem;
-}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBucket | Adventure Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<!-- Header -->
-<header>
-<div class="container header-container">
-<div class="logo">Khant<span>Explorer</span></div>
-<div class="mobile-menu">
-<i class="fas fa-bars"></i>
-</div>
-<nav>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">Destinations</a></li>
-<li><a href="#">Travel Tips</a></li>
-<li><a href="#">Food & Culture</a></li>
-<li><a href="#">Adventures</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
-</nav>
-</div>
-</header>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#">TravelBucket</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">Travel Tips</a></li>
+                    <li><a href="#">Bucket Lists</a></li>
+                    <li><a href="#">Photography</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
 
-<!-- Hero Section -->
-<section class="hero">
-<div class="hero-content">
-<h1>Explore the World with Khant</h1>
-<p>Discover hidden gems, travel tips, and inspiring adventures from around the globe</p>
-<a href="#" class="btn">Start Exploring</a>
-<a href="#" class="btn btn-light">Read the Blog</a>
-</div>
-</section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Adventure Awaits Around Every Corner</h1>
+            <p>Discover inspiring travel stories and bucket list destinations</p>
+            <a href="#" class="btn">Explore Destinations</a>
+        </div>
+    </section>
 
-<!-- Featured Posts -->
-<section class="featured-posts">
-<div class="container">
-<h2 class="section-title">Featured Travel Stories</h2>
-<div class="posts-grid">
-<!-- Post 1 -->
-<div class="post-card">
-<div class="post-image">
-<img src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80" alt="Bali Adventure">
-</div>
-<div class="post-content">
-<div class="post-meta">
-<span><i class="fas fa-calendar"></i> May 15, 2023</span>
-<span><i class="fas fa-map-marker-alt"></i> Bali, Indonesia</span>
-</div>
-<h3 class="post-title">Discovering Bali's Hidden Waterfalls</h3>
-<p class="post-excerpt">A journey through Bali's lush jungles to find the most breathtaking waterfalls away from the tourist crowds.</p>
-<a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
+    <!-- Featured Posts -->
+    <section class="featured-posts">
+        <div class="container">
+            <h2>Featured Stories</h2>
+            <div class="posts-grid">
+                <article class="post-card">
+                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Mountain Adventure">
+                    <div class="post-content">
+                        <span class="category">Adventure</span>
+                        <h3>Hiking the Andes: A Journey to Remember</h3>
+                        <p>Discover the breathtaking views and challenging trails of South America's longest mountain range.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="post-card">
+                    <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGFqJTIwbWFoYWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Taj Mahal">
+                    <div class="post-content">
+                        <span class="category">Cultural</span>
+                        <h3>India's Golden Triangle: A Cultural Feast</h3>
+                        <p>Exploring Delhi, Agra, and Jaipur - three cities that showcase India's rich history.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="post-card">
+                    <img src="https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFsaXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Bali">
+                    <div class="post-content">
+                        <span class="category">Beach</span>
+                        <h3>Bali on a Budget: Paradise Without Breaking the Bank</h3>
+                        <p>How to experience Bali's magic while keeping your expenses low.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-<!-- Post 2 -->
-<div class="post-card">
-<div class="post-image">
-<img src="https://images.unsplash.com/photo-1551632436-7a879920dd8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Japanese Cuisine">
-</div>
-<div class="post-content">
-<div class="post-meta">
-<span><i class="fas fa-calendar"></i> April 28, 2023</span>
-<span><i class="fas fa-map-marker-alt"></i> Tokyo, Japan</span>
-</div>
-<h3 class="post-title">A Food Lover's Guide to Tokyo</h3>
-<p class="post-excerpt">From sushi to ramen, explore Tokyo's vibrant food scene through its best local eateries and street food stalls.</p>
-<a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join the Adventure</h2>
+            <p>Subscribe for travel inspiration and exclusive tips</p>
+            <form>
+                <input type="email" placeholder="Your email address">
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
 
-<!-- Post 3 -->
-<div class="post-card">
-<div class="post-image">
-<img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80" alt="Italian Architecture">
-</div>
-<div class="post-content">
-<div class="post-meta">
-<span><i class="fas fa-calendar"></i> March 12, 2023</span>
-<span><i class="fas fa-map-marker-alt"></i> Rome, Italy</span>
-</div>
-<h3 class="post-title">Walking Through History in Rome</h3>
-<p class="post-excerpt">An architectural journey through Rome's ancient ruins and Renaissance masterpieces that tell stories of the past.</p>
-<a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>TravelBucket</h3>
+                    <p>Sharing inspiring travel stories and bucket list destinations since 2023.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">Destinations</a></li>
+                        <li><a href="#">Travel Guides</a></li>
+                        <li><a href="#">Bucket Lists</a></li>
+                        <li><a href="#">Photography Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 TravelBucket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-<!-- Categories Section -->
-<section class="categories">
-<div class="container">
-<h2 class="section-title">Explore by Category</h2>
-<div class="categories-grid">
-<div class="category-card">
-<img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Beaches">
-<div class="category-overlay">Beaches</div>
-</div>
-<div class="category-card">
-<img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80" alt="Mountains">
-<div class="category-overlay">Mountains</div>
-</div>
-<div class="category-card">
-<img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1774&q=80" alt="Food">
-<div class="category-overlay">Food</div>
-</div>
-<div class="category-card">
-<img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Culture">
-<div class="category-overlay">Culture</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Newsletter -->
-<section class="newsletter">
-<div class="container">
-<h2>Join the Adventure</h2>
-<p>Subscribe to get exclusive travel tips, destination guides, and special offers straight to your inbox.</p>
-<form class="newsletter-form">
-<input type="email" placeholder="Your email address" required>
-<button type="submit">Subscribe</button>
-</form>
-</div>
-</section>
-
-<!-- About Section -->
-<section class="about">
-<div class="container">
-<div class="about-content">
-<div class="about-image">
-<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="About Kai">
-</div>
-<div class="about-text">
-<h2>About Khant, The Explorer</h2>
-<p>Hello! I'm Khant, a passionate traveler, photographer, and storyteller. What started as a gap year adventure turned into a lifelong journey of exploration and discovery.</p>
-<p>Through kaiexplorer.com, I share my travel experiences, tips, and photography to inspire others to step out of their comfort zones and explore our beautiful planet.</p>
-<p>Join me as I uncover hidden gems, embrace different cultures, and chase adventures around the globe!</p>
-<div class="social-icons">
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-pinterest"></i></a>
-<a href="#"><i class="fab fa-youtube"></i></a>
-<a href="#"><i class="fab fa-twitter"></i></a>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer>
-<div class="container">
-<div class="footer-content">
-<div class="footer-column">
-<h3>Khant Journey</h3>
-<p>Sharing travel adventures, tips, and photography from around the world. Join me on the journey!</p>
-</div>
-<div class="footer-column">
-<h3>Quick Links</h3>
-<ul class="footer-links">
-<li><a href="#">Home</a></li>
-<li><a href="#">Destinations</a></li>
-<li><a href="#">Travel Resources</a></li>
-<li><a href="#">Photography</a></li>
-<li><a href="#">About Me</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h3>Popular Categories</h3>
-<ul class="footer-links">
-<li><a href="#">Adventure Travel</a></li>
-<li><a href="#">Food Guides</a></li>
-<li><a href="#">Budget Travel</a></li>
-<li><a href="#">Solo Travel</a></li>
-<li><a href="#">Travel Photography</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h3>Contact</h3>
-<ul class="footer-links">
-<li><i class="fas fa-envelope"></i> hello@kaiexplorer.com</li>
-<li><i class="fas fa-map-marker-alt"></i> Currently exploring: Bali</li>
-<li><i class="fas fa-globe"></i> Next destination: Japan</li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>&copy; 2023 kaiexplorer.com | All Rights Reserved</p>
-</div>
-</div>
-</footer>
-
-<script>
-// Mobile Menu Toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu');
-const nav = document.querySelector('nav');
-
-mobileMenuBtn.addEventListener('click', () => {
-nav.classList.toggle('active');
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-nav.classList.remove('active');
-}
-});
-
-// Newsletter Form Submission
-const newsletterForm = document.querySelector('.newsletter-form');
-newsletterForm.addEventListener('submit', (e) => {
-e.preventDefault();
-const email = newsletterForm.querySelector('input').value;
-alert(`Thank you for subscribing with ${email}! You'll receive travel updates soon.`);
-newsletterForm.reset();
-});
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
